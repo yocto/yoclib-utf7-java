@@ -1,5 +1,8 @@
 package com.yocto.yoclib.utf7;
 
+/**
+ * Constants for UTF-7.
+ */
 public class UTF7Constants{
 
     public static final char BASE64_SLASH = '/';

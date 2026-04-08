@@ -1,7 +1,15 @@
 package com.yocto.yoclib.utf7;
 
+/**
+ * Encode and decode UTF-7.
+ */
 public class UTF7{
 
+    /**
+     *
+     * @param input The input string.
+     * @return The output string.
+     */
     public static String decodeIMAP(String input){
         StringBuilder sb = new StringBuilder();
         int shiftIndex = -1;
@@ -30,6 +38,11 @@ public class UTF7{
         return sb.toString();
     }
 
+    /**
+     *
+     * @param input The input string.
+     * @return The output string.
+     */
     public static String encodeIMAP(String input){
         StringBuilder sb = new StringBuilder();
         char[] chars = input.toCharArray();
