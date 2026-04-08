@@ -33,7 +33,7 @@ public class UTF7{
             }
         }
         if(shiftIndex!=-1){
-            throw new RuntimeException("String terminated in wrong mode.");
+            throw new IllegalArgumentException("String terminated in wrong mode.");
         }
         return sb.toString();
     }

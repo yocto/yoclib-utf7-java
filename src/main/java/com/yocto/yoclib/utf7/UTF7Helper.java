@@ -27,7 +27,7 @@ public class UTF7Helper{
      * @return The output string.
      */
     public static String decodeIMAPModifiedBase64(String input){
-        return UTF7Helper.decodeModifiedBase64(input.replaceAll(Character.toString(UTF7Constants.BASE64_SLASH_IMAP),Character.toString(UTF7Constants.BASE64_SLASH)));
+        return UTF7Helper.decodeModifiedBase64(input.replace(UTF7Constants.BASE64_SLASH_IMAP,UTF7Constants.BASE64_SLASH));
     }
 
     /**
@@ -37,7 +37,7 @@ public class UTF7Helper{
      */
     public static String encodeModifiedBase64(String input){
         byte[] inputBytes = input.getBytes(StandardCharsets.UTF_16BE);
-        return UTF7Helper.ENCODER.encodeToString(inputBytes).replaceAll("=","");
+        return UTF7Helper.ENCODER.encodeToString(inputBytes).replace("=","");
     }
 
     /**
@@ -46,7 +46,7 @@ public class UTF7Helper{
      * @return The output string.
      */
     public static String encodeIMAPModifiedBase64(String input){
-        return UTF7Helper.encodeModifiedBase64(input).replaceAll(Character.toString(UTF7Constants.BASE64_SLASH),Character.toString(UTF7Constants.BASE64_SLASH_IMAP));
+        return UTF7Helper.encodeModifiedBase64(input).replace(UTF7Constants.BASE64_SLASH,UTF7Constants.BASE64_SLASH_IMAP);
     }
 
 }
