@@ -15,7 +15,12 @@ public class UTF7Test{
 //        assertEquals("日本語",UTF7.decode("+ZeVnLIqe-"));
 //        assertEquals("Item 3 is £1.",UTF7.decode("Item 3 is +AKM-1."));
 //    }
-//
+
+    @Test
+    public void testDecodeIMAP(){
+        assertEquals("~peter/mail/日本語/台北",UTF7.decodeIMAP("~peter/mail/&ZeVnLIqe-/&U,BTFw-"));
+    }
+
 //    @Test
 //    public void testEncode(){
 //        //assertEquals("A+ImIDkQ.",UTF7.encode("A≢Α."));
@@ -26,5 +31,10 @@ public class UTF7Test{
 //        assertEquals("+AAA-",UTF7.encode("\u0000"));
 //        assertEquals("+AAg-",UTF7.encode("\u0008"));
 //    }
+
+    @Test
+    public void testEncodeIMAP(){
+        assertEquals("~peter/mail/&ZeVnLIqe-/&U,BTFw-",UTF7.encodeIMAP("~peter/mail/日本語/台北"));
+    }
 
 }
