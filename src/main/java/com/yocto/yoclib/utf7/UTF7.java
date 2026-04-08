@@ -5,8 +5,10 @@ package com.yocto.yoclib.utf7;
  */
 public class UTF7{
 
+    private UTF7(){}
+
     /**
-     *
+     * Decode IMAP-specific UTF-7.
      * @param input The input string.
      * @return The output string.
      */
@@ -19,7 +21,7 @@ public class UTF7{
                 shiftIndex = i;
                 continue;
             }
-            if(c==UTF7Constants.UNSHIFT && shiftIndex!=-1){
+            if(c==UTF7Constants.SHIFT_TERMINATOR && shiftIndex!=-1){
                 if(shiftIndex+1==i){
                     sb.append(UTF7Constants.SHIFT_IMAP);
                 }else{
@@ -39,7 +41,7 @@ public class UTF7{
     }
 
     /**
-     *
+     * Encode IMAP-specific UTF-7.
      * @param input The input string.
      * @return The output string.
      */
@@ -68,7 +70,7 @@ public class UTF7{
 
                 sb.append(UTF7Helper.encodeIMAPModifiedBase64(subSB.toString()));
             }
-            sb.append(UTF7Constants.UNSHIFT);
+            sb.append(UTF7Constants.SHIFT_TERMINATOR);
         }
         return sb.toString();
     }
